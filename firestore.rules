@@ -1,0 +1,21 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /charterInquiries/{inquiryId} {
+      // Allow any guest to submit a charter flight inquiry
+      allow create: if request.resource.data.contactName is string &&
+                       request.resource.data.contactEmail is string &&
+                       request.resource.data.departureAirport is string &&
+                       request.resource.data.arrivalAirport is string &&
+                       request.resource.data.passengers is number &&
+                       request.resource.data.passengers >= 1;
+
+      // Inquiries are confidential and only accessible by staff/admin
+      allow read, update, delete: if false;
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
