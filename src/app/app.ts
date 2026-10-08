@@ -2,6 +2,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   ElementRef,
+  afterNextRender,
   computed,
   signal,
   viewChild,
@@ -77,6 +78,14 @@ export interface AirstripWeather {
   },
 })
 export class App {
+  private heroVideoAutoplayFallbackBound = false;
+
+  constructor() {
+    afterNextRender(() => {
+      this.playHeroVideoMuted();
+    });
+  }
+
   // Mobile Menu state
   readonly isMobileMenuOpen = signal(false);
 
@@ -760,6 +769,45 @@ export class App {
     }
     this.closeNavModal();
     this.openBookingModal();
+  }
+
+  /**
+   * Starts the hero background video muted (visual only). Sound stays off until the user toggles audio.
+   */
+  onHeroVideoReady(event: Event): void {
+    event.stopPropagation();
+    this.playHeroVideoMuted(event.target as HTMLVideoElement);
+  }
+
+  private playHeroVideoMuted(videoEl?: HTMLVideoElement | null): void {
+    if (typeof window === 'undefined') return;
+
+    const video = videoEl ?? this.bgVideoRef()?.nativeElement;
+    if (!video) return;
+
+    video.muted = true;
+    video.defaultMuted = true;
+    video.playsInline = true;
+
+    if (!video.paused && !video.ended) {
+      return;
+    }
+
+    void video.play().catch(() => {
+      this.bindHeroVideoAutoplayFallback();
+    });
+  }
+
+  private bindHeroVideoAutoplayFallback(): void {
+    if (this.heroVideoAutoplayFallbackBound || typeof document === 'undefined') {
+      return;
+    }
+    this.heroVideoAutoplayFallbackBound = true;
+    document.addEventListener(
+      'pointerdown',
+      () => this.playHeroVideoMuted(),
+      { once: true, passive: true },
+    );
   }
 
   /**
