@@ -1,6 +1,0 @@
-{
-  "name": "SkyElite Kenya - Premium Private Jets",
-  "description": "Experience luxury private jet charters across Kenya and East Africa. Direct executive flights from Nairobi Wilson Airport, Maasai Mara, Vipingo Ridge, and beyond.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}
