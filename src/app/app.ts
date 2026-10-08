@@ -71,7 +71,6 @@ export interface AirstripWeather {
   imports: [ReactiveFormsModule, MatIconModule, FlightTracker, AircraftCarousel],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './app.html',
-  styleUrl: './app.css',
   host: {
     '(document:click)': 'onDocumentClick($event)',
     '(document:keydown.escape)': 'onEscapeKey()',

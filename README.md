@@ -55,7 +55,7 @@ The application blends high-performance 3D graphics, interactive geographic mapp
 
 ## 🛠️ Technology Stack
 
-- **Framework**: Angular 21 (Zoneless, OnPush change detection, Signals)
+- **Framework**: Angular 22 (Zoneless, OnPush change detection, Signals)
 - **Styling**: Tailwind CSS v4 with custom aerospace glassmorphism
 - **3D Graphics**: Three.js
 - **Radar & Mapping**: D3.js (Geographic Mercator projection & SVG telemetry layers)
@@ -97,11 +97,9 @@ npm run build
 │   │   ├── flight-tracker.html      # Radar map & telemetry UI template
 │   │   ├── flight-tracker.ts        # D3-powered live flight radar simulation
 │   │   ├── app.html                 # Main landing layout, header & modals
-│   │   ├── app.ts                   # Navigation, state signals & booking logic
-│   │   └── app.routes.ts            # Route configurations
+│   │   └── app.ts                   # Navigation, state signals & booking logic
 │   ├── styles.css                   # Global Tailwind CSS and aviation font variables
 │   └── index.html                   # Entry HTML with preloaded aviation typography
-├── metadata.json                    # Application metadata
 └── README.md                        # Project documentation
 ```
 
