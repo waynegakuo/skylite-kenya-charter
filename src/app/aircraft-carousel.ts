@@ -90,7 +90,7 @@ export interface AircraftPhoto {
           </button>
 
           <!-- Current Slide Indicator -->
-          <span class="font-mono text-xs font-semibold px-2.5 py-1 bg-white/80 border border-black/5 rounded-xl text-[#202A36]">
+          <span class="font-mono text-xs font-semibold px-2.5 py-1 bg-white/80 border border-black/5 rounded-xl text-[#C0272D]">
             {{ currentSlideNumber() }} / {{ totalSlides() }}
           </span>
         </div>
@@ -134,12 +134,12 @@ export interface AircraftPhoto {
                 <span
                   class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-black/60 backdrop-blur-md text-white border border-white/20 shadow-sm"
                 >
-                  <mat-icon class="text-xs! w-3.5! h-3.5! text-emerald-400">verified</mat-icon>
+                  <mat-icon class="text-xs! w-3.5! h-3.5! text-red-400">verified</mat-icon>
                   {{ photo.badge }}
                 </span>
 
                 <span
-                  class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-white/90 backdrop-blur-md text-[#202A36] shadow-sm"
+                  class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-white/90 backdrop-blur-md text-[#C0272D] shadow-sm"
                 >
                   <mat-icon class="text-xs! w-3.5! h-3.5!">flight</mat-icon>
                   {{ photo.aircraft }}
@@ -150,7 +150,7 @@ export interface AircraftPhoto {
               <div class="relative z-10 p-5 md:p-7 text-white space-y-3">
                 <div class="flex flex-col md:flex-row md:items-end justify-between gap-3">
                   <div class="space-y-1 max-w-xl">
-                    <p class="text-xs uppercase tracking-widest text-emerald-300 font-semibold">
+                    <p class="text-xs uppercase tracking-widest text-red-300 font-semibold">
                       {{ photo.subtitle }}
                     </p>
                     <h3 class="text-xl md:text-2xl font-bold tracking-tight text-white drop-shadow-sm">
@@ -166,7 +166,7 @@ export interface AircraftPhoto {
                     <button
                       type="button"
                       (click)="onSelectJet(photo.aircraft)"
-                      class="px-4 py-2 rounded-full bg-emerald-500 hover:bg-emerald-400 text-gray-950 font-semibold text-xs transition-colors shadow-lg flex items-center gap-1.5 cursor-pointer active:scale-95"
+                      class="px-4 py-2 rounded-full bg-red-500 hover:bg-red-400 text-gray-950 font-semibold text-xs transition-colors shadow-lg flex items-center gap-1.5 cursor-pointer active:scale-95"
                     >
                       <mat-icon class="text-sm! w-4! h-4!">event_seat</mat-icon>
                       <span>Reserve {{ photo.aircraft.includes('Bush') ? 'PC-24' : (photo.aircraft.includes('Challenger') ? 'Challenger' : 'Jet') }}</span>
@@ -190,7 +190,7 @@ export interface AircraftPhoto {
                       <span
                         class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md bg-white/15 backdrop-blur-sm text-white/90 text-[11px] font-medium border border-white/10"
                       >
-                        <mat-icon class="text-[10px]! w-3! h-3! text-emerald-300">check_circle</mat-icon>
+                        <mat-icon class="text-[10px]! w-3! h-3! text-red-300">check_circle</mat-icon>
                         {{ item }}
                       </span>
                     }
@@ -243,7 +243,7 @@ export interface AircraftPhoto {
         @if (isAutoplay()) {
           <div class="absolute bottom-0 left-0 right-0 h-1 bg-white/20 z-20 overflow-hidden">
             <div
-              class="h-full bg-emerald-400 transition-all ease-linear"
+              class="h-full bg-red-400 transition-all ease-linear"
               [style.width.%]="autoplayProgress()"
             ></div>
           </div>
@@ -263,7 +263,7 @@ export interface AircraftPhoto {
               (click)="goToSlide(i)"
               class="h-2 rounded-full transition-all cursor-pointer"
               [class.w-7]="currentIndex() === i"
-              [class.bg-[#202A36]]="currentIndex() === i"
+              [class.bg-[#C0272D]]="currentIndex() === i"
               [class.w-2]="currentIndex() !== i"
               [class.bg-gray-300]="currentIndex() !== i"
               [class.hover:bg-gray-400]="currentIndex() !== i"
@@ -278,7 +278,7 @@ export interface AircraftPhoto {
               type="button"
               (click)="goToSlide(i)"
               [class.ring-2]="currentIndex() === i"
-              [class.ring-[#202A36]]="currentIndex() === i"
+              [class.ring-[#C0272D]]="currentIndex() === i"
               [class.scale-105]="currentIndex() === i"
               [class.opacity-100]="currentIndex() === i"
               [class.opacity-60]="currentIndex() !== i"
@@ -293,7 +293,7 @@ export interface AircraftPhoto {
                 class="w-full h-full object-cover"
               />
               @if (currentIndex() === i) {
-                <div class="absolute inset-0 bg-emerald-500/20"></div>
+                <div class="absolute inset-0 bg-red-500/20"></div>
               }
             </button>
           }
@@ -323,7 +323,7 @@ export interface AircraftPhoto {
           <!-- Top Lightbox Header -->
           <div class="p-4 px-6 flex items-center justify-between border-b border-white/15 bg-black/60 text-white z-10">
             <div>
-              <span class="text-xs uppercase tracking-wider text-emerald-400 font-semibold">
+              <span class="text-xs uppercase tracking-wider text-red-400 font-semibold">
                 {{ activePhoto().subtitle }}
               </span>
               <h4 class="text-lg md:text-xl font-bold text-white">{{ activePhoto().title }}</h4>
@@ -389,7 +389,7 @@ export interface AircraftPhoto {
               <button
                 type="button"
                 (click)="onSelectJet(activePhoto().aircraft); closeLightbox()"
-                class="px-5 py-2.5 rounded-full bg-emerald-500 hover:bg-emerald-400 text-gray-950 font-bold text-xs uppercase tracking-wider transition-colors shadow-lg cursor-pointer"
+                class="px-5 py-2.5 rounded-full bg-red-500 hover:bg-red-400 text-gray-950 font-bold text-xs uppercase tracking-wider transition-colors shadow-lg cursor-pointer"
               >
                 Inquire & Book Flight
               </button>

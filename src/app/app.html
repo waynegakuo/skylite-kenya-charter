@@ -1,5 +1,5 @@
 <!-- Outer container: min-h-screen, bg-gray-50 -->
-<div class="min-h-screen bg-gray-50 text-gray-900 font-sans selection:bg-[#202A36] selection:text-white relative">
+<div class="min-h-screen bg-[#FAF8F5] text-[#111111] font-sans selection:bg-[#C0272D] selection:text-white relative">
   <!-- Hero Section: relative, h-screen, overflow-hidden -->
   <section class="relative h-screen overflow-hidden">
     <!-- Video Background: covers entire viewport (100vh) using object-cover at the original natural range -->
@@ -31,7 +31,7 @@
               (click)="$event.preventDefault()"
               class="text-2xl font-semibold text-gray-900 tracking-tight flex items-center gap-2.5 select-none transition-colors"
             >
-              <span class="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-[#202A36] text-white shadow-sm">
+              <span class="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-[#C0272D] text-white shadow-sm">
                 <svg class="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.3c.4-.2.6-.6.5-1.1z"/>
                 </svg>
@@ -56,8 +56,8 @@
                   >
                     @if (group.hasLiveBadge) {
                       <span class="relative flex h-2 w-2 mr-0.5">
-                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
                       </span>
                     }
                     <span>{{ group.shortTitle }}</span>
@@ -77,7 +77,7 @@
                       <div class="px-3 py-1.5 mb-1 border-b border-black/5 flex items-center justify-between">
                         <span class="text-[11px] font-semibold tracking-wider uppercase text-gray-400">{{ group.title }}</span>
                         @if (group.hasLiveBadge) {
-                          <span class="text-[9px] bg-emerald-100 text-emerald-800 font-mono font-bold px-1.5 py-0.2 rounded-full">REAL-TIME</span>
+                          <span class="text-[9px] bg-red-100 text-red-800 font-mono font-bold px-1.5 py-0.2 rounded-full">REAL-TIME</span>
                         }
                       </div>
                       <div class="flex flex-col gap-1">
@@ -87,12 +87,12 @@
                             (click)="executeNavAction(subItem.action)"
                             class="w-full text-left p-2.5 rounded-xl hover:bg-black/5 transition-all flex items-start gap-3 group cursor-pointer"
                           >
-                            <div class="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center shrink-0 text-gray-700 group-hover:bg-[#202A36] group-hover:text-white transition-colors">
+                            <div class="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center shrink-0 text-gray-700 group-hover:bg-[#C0272D] group-hover:text-white transition-colors">
                               <mat-icon class="text-lg">{{ subItem.icon }}</mat-icon>
                             </div>
                             <div class="flex-1 min-w-0">
                               <div class="flex items-center justify-between gap-1.5">
-                                <span class="text-xs font-semibold text-gray-900 group-hover:text-[#202A36] leading-tight">
+                                <span class="text-xs font-semibold text-gray-900 group-hover:text-[#C0272D] leading-tight">
                                   {{ subItem.label }}
                                 </span>
                                 @if (subItem.badge) {
@@ -100,8 +100,8 @@
                                     class="text-[9px] font-mono font-bold px-1.5 py-0.5 rounded-full shrink-0"
                                     [class.bg-amber-100]="subItem.badgeType === 'amber'"
                                     [class.text-amber-800]="subItem.badgeType === 'amber'"
-                                    [class.bg-emerald-100]="subItem.badgeType === 'emerald'"
-                                    [class.text-emerald-800]="subItem.badgeType === 'emerald'"
+                                    [class.bg-red-100]="subItem.badgeType === 'accent'"
+                                    [class.text-red-800]="subItem.badgeType === 'accent'"
                                   >
                                     {{ subItem.badge }}
                                   </span>
@@ -130,8 +130,8 @@
                 title="Open Live Flight Radar over Kenyan landmarks"
               >
                 <span class="relative flex h-2 w-2">
-                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                  <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
                 </span>
                 <span>Live Radar</span>
                 <span class="px-1.5 py-0.2 rounded text-[10px] bg-slate-900 text-white font-mono font-medium">D3</span>
@@ -141,9 +141,9 @@
                 type="button"
                 (click)="toggleAudio()"
                 [title]="isVideoMuted() ? 'Turn on synced jet sound' : 'Turn off jet sound'"
-                [class.bg-emerald-50]="!isVideoMuted()"
-                [class.border-emerald-300]="!isVideoMuted()"
-                [class.text-emerald-700]="!isVideoMuted()"
+                [class.bg-red-50]="!isVideoMuted()"
+                [class.border-red-300]="!isVideoMuted()"
+                [class.text-red-700]="!isVideoMuted()"
                 class="w-9 h-9 rounded-full flex items-center justify-center text-gray-700 hover:text-gray-900 bg-white/60 hover:bg-white/90 transition-all border border-white/70 cursor-pointer shadow-sm relative group"
                 aria-label="Toggle synced private jet audio"
               >
@@ -156,7 +156,7 @@
                   </svg>
                 } @else {
                   <!-- Playing speaker icon with active waves -->
-                  <svg class="w-4 h-4 text-emerald-600 animate-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <svg class="w-4 h-4 text-red-600 animate-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
                     <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
                     <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
@@ -168,9 +168,9 @@
               <button
                 type="button"
                 (click)="openBookingModal()"
-                class="px-4 py-2 rounded-full text-white bg-[#202A36] hover:bg-[#1a2229] transition-colors font-medium text-sm cursor-pointer shadow-sm"
+                class="px-4 py-2 rounded-full text-white bg-[#C0272D] hover:bg-[#A01F24] transition-colors font-medium text-sm cursor-pointer shadow-sm"
               >
-                Book Flight
+                Request Charter
               </button>
             </div>
 
@@ -180,8 +180,8 @@
                 type="button"
                 (click)="toggleAudio()"
                 class="w-9 h-9 rounded-full flex items-center justify-center text-gray-700 bg-white/60 transition-colors border border-white/60"
-                [class.text-emerald-700]="!isVideoMuted()"
-                [class.bg-emerald-50]="!isVideoMuted()"
+                [class.text-red-700]="!isVideoMuted()"
+                [class.bg-red-50]="!isVideoMuted()"
                 [title]="isVideoMuted() ? 'Turn on synced jet sound' : 'Turn off jet sound'"
                 aria-label="Toggle synced audio"
               >
@@ -191,7 +191,7 @@
                     <path d="M11 5 6 9H2v6h4l5 4V5Z"/>
                   </svg>
                 } @else {
-                  <svg class="w-4 h-4 text-emerald-600 animate-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <svg class="w-4 h-4 text-red-600 animate-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
                     <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
                   </svg>
@@ -239,8 +239,8 @@
                       <div class="flex items-center gap-2">
                         @if (group.hasLiveBadge) {
                           <span class="relative flex h-2 w-2">
-                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
                           </span>
                         }
                         <span class="text-sm font-semibold text-gray-900">{{ group.title }}</span>
@@ -276,8 +276,8 @@
                                     class="text-[9px] font-mono font-bold px-1.5 py-0.2 rounded-full"
                                     [class.bg-amber-100]="subItem.badgeType === 'amber'"
                                     [class.text-amber-800]="subItem.badgeType === 'amber'"
-                                    [class.bg-emerald-100]="subItem.badgeType === 'emerald'"
-                                    [class.text-emerald-800]="subItem.badgeType === 'emerald'"
+                                    [class.bg-red-100]="subItem.badgeType === 'accent'"
+                                    [class.text-red-800]="subItem.badgeType === 'accent'"
                                   >
                                     {{ subItem.badge }}
                                   </span>
@@ -298,9 +298,9 @@
                 <button
                   type="button"
                   (click)="openBookingModal()"
-                  class="w-full py-2.5 rounded-full text-white bg-[#202A36] hover:bg-[#1a2229] transition-colors font-medium text-sm text-center shadow-sm cursor-pointer"
+                  class="w-full py-2.5 rounded-full text-white bg-[#C0272D] hover:bg-[#A01F24] transition-colors font-medium text-sm text-center shadow-sm cursor-pointer"
                 >
-                  Book Flight
+                  Request Charter
                 </button>
                 <button
                   type="button"
@@ -319,27 +319,22 @@
       <main class="flex-1 flex flex-col items-center justify-start pt-2 sm:pt-4 md:pt-5 px-4 sm:px-6">
         <!-- Hero Content (positioned right below navbar) -->
         <div class="text-center max-w-4xl mx-auto px-4">
-          <!-- Small uppercase label: "PRIVATE JETS" -->
-          <p class="text-xs sm:text-sm font-semibold text-gray-600 tracking-widest mb-1.5 sm:mb-2 uppercase">
-            PRIVATE JETS
+          <p class="text-xs sm:text-sm font-semibold text-[#C0272D] tracking-[0.2em] mb-1.5 sm:mb-2 uppercase">
+            Charters for Good · East Africa
           </p>
 
-          <!-- Large two-line heading with overlapping effect -->
           <div class="flex flex-col items-center justify-center select-none">
-            <!-- Line 1: "Premium." (text-5xl sm:text-6xl md:text-7xl lg:text-8xl, font-normal, text-gray-500, leading-none, tracking-tighter) -->
             <span class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-normal text-gray-500 leading-none tracking-tighter">
-              Premium.
+              Purposeful.
             </span>
 
-            <!-- Line 2: "Accessible." (same size, color: #202A36, negative margin-top for overlap) -->
-            <span class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-normal text-[#202A36] leading-none tracking-tighter -mt-[8px] sm:-mt-[12px]">
-              Accessible.
+            <span class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-normal text-[#1A1A1A] leading-none tracking-tighter -mt-[8px] sm:-mt-[12px]">
+              Connected.
             </span>
           </div>
 
-          <!-- Subtitle: "Your dedication deserves recognition." -->
           <p class="text-base sm:text-lg md:text-xl text-gray-600 mb-4 sm:mb-5 max-w-2xl mx-auto mt-2.5 sm:mt-3 font-normal">
-            Your dedication deserves recognition.
+            Book private charter flights from Wilson Airport — flexible routes, remote airstrip access, and operations inspired by leading aero-medical aviation in Kenya.
           </p>
 
           <!-- Two call-to-action buttons (gap-4, centered) -->
@@ -357,9 +352,9 @@
             <button
               type="button"
               (click)="openBookingModal()"
-              class="px-5 py-2 rounded-full text-white bg-[#202A36] hover:bg-[#1a2229] transition-colors font-medium cursor-pointer shadow-md active:scale-95 text-sm sm:text-base"
+              class="px-5 py-2 rounded-full text-white bg-[#C0272D] hover:bg-[#A01F24] transition-colors font-medium cursor-pointer shadow-md active:scale-95 text-sm sm:text-base"
             >
-              Book Now
+              Request Charter
             </button>
           </div>
         </div>
@@ -375,15 +370,15 @@
         <div class="flex items-start justify-between mb-4 pb-3 border-b border-black/5">
           <div>
             <div class="flex items-center gap-2">
-              <span class="text-xs uppercase tracking-widest font-semibold text-gray-500">SkyElite Kenya · VIP Private Aviation</span>
-              <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-medium bg-emerald-100 text-emerald-800 border border-emerald-200">
-                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                Executive Interiors & Amenities
+              <span class="text-xs uppercase tracking-widest font-semibold text-gray-500">SkyElite Kenya · Charter Aviation</span>
+              <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-medium bg-red-100 text-red-800 border border-red-200">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#C0272D] animate-pulse"></span>
+                Cabin &amp; Fleet Gallery
               </span>
             </div>
-            <h2 class="text-2xl md:text-3xl font-semibold text-[#202A36] mt-0.5">Aircraft Interior & Luxury Fleet</h2>
+            <h2 class="text-2xl md:text-3xl font-semibold text-[#C0272D] mt-0.5">Charter Fleet &amp; Cabin Configurations</h2>
             <p class="text-xs text-gray-600 mt-1 max-w-2xl hidden sm:block">
-              Explore bespoke cabin interiors, hand-stitched leather armchairs, in-flight crystal champagne service, and luxury amenities tailored for East African journeys.
+              Explore executive seating, medical-ready layouts, and turboprop &amp; jet options for regional charters, remote strips, and cross-border missions from Wilson Airport.
             </p>
           </div>
           <button
@@ -405,7 +400,7 @@
             type="button"
             (click)="setDiscoverModalTab('interiors')"
             [class.bg-white]="discoverModalTab() === 'interiors'"
-            [class.text-[#202A36]]="discoverModalTab() === 'interiors'"
+            [class.text-[#C0272D]]="discoverModalTab() === 'interiors'"
             [class.shadow-sm]="discoverModalTab() === 'interiors'"
             [class.font-semibold]="discoverModalTab() === 'interiors'"
             [class.text-gray-600]="discoverModalTab() !== 'interiors'"
@@ -413,14 +408,14 @@
           >
             <mat-icon class="text-base! w-4! h-4!">photo_library</mat-icon>
             <span>Cabin Interiors & Amenities</span>
-            <span class="text-[10px] bg-emerald-100 text-emerald-800 font-mono px-1.5 py-0.5 rounded-md font-bold">SWIPEABLE</span>
+            <span class="text-[10px] bg-red-100 text-red-800 font-mono px-1.5 py-0.5 rounded-md font-bold">SWIPEABLE</span>
           </button>
 
           <button
             type="button"
             (click)="setDiscoverModalTab('fleet')"
             [class.bg-white]="discoverModalTab() === 'fleet'"
-            [class.text-[#202A36]]="discoverModalTab() === 'fleet'"
+            [class.text-[#C0272D]]="discoverModalTab() === 'fleet'"
             [class.shadow-sm]="discoverModalTab() === 'fleet'"
             [class.font-semibold]="discoverModalTab() === 'fleet'"
             [class.text-gray-600]="discoverModalTab() !== 'fleet'"
@@ -461,12 +456,12 @@
               </div>
 
               <div class="glass-card rounded-2xl p-3.5 border border-white/80 bg-white/40 flex items-start gap-3">
-                <span class="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center shrink-0">
+                <span class="w-8 h-8 rounded-xl bg-red-100 text-red-800 flex items-center justify-center shrink-0">
                   <mat-icon class="text-base! w-4! h-4!">luggage</mat-icon>
                 </span>
                 <div>
                   <h4 class="text-xs font-semibold text-gray-900">In-Flight Cargo Access</h4>
-                  <p class="text-[11px] text-gray-600 mt-0.5 leading-snug">Access heavy telephoto lenses and golf gear directly in flight on the PC-24.</p>
+                  <p class="text-[11px] text-gray-600 mt-0.5 leading-snug">PC-12 cargo door access for medical kits, field equipment, and group luggage on remote charters.</p>
                 </div>
               </div>
 
@@ -494,7 +489,7 @@
                       <span>{{ jet.category }}</span>
                       <span class="font-medium text-gray-700">{{ jet.hourlyRate }}</span>
                     </div>
-                    <h3 class="text-lg font-semibold text-[#202A36] mb-2">{{ jet.name }}</h3>
+                    <h3 class="text-lg font-semibold text-[#C0272D] mb-2">{{ jet.name }}</h3>
                     <p class="text-xs text-gray-600 mb-4 leading-relaxed">{{ jet.description }}</p>
 
                     <!-- Clean unboxed specs with separators -->
@@ -526,7 +521,7 @@
                     <button
                       type="button"
                       (click)="onSelectJetFromCarousel(jet.name)"
-                      class="px-4 py-1.5 rounded-full text-xs font-medium bg-[#202A36] text-white hover:bg-[#1a2229] transition-colors cursor-pointer"
+                      class="px-4 py-1.5 rounded-full text-xs font-medium bg-[#C0272D] text-white hover:bg-[#A01F24] transition-colors cursor-pointer"
                     >
                       Book This Jet
                     </button>
@@ -540,7 +535,7 @@
         <!-- Bottom Action Bar -->
         <div class="flex items-center justify-between gap-3 pt-3 border-t border-black/5">
           <div class="flex items-center gap-2 text-xs text-gray-500">
-            <mat-icon class="text-xs! w-3.5! h-3.5! text-emerald-600">verified_user</mat-icon>
+            <mat-icon class="text-xs! w-3.5! h-3.5! text-red-600">verified_user</mat-icon>
             <span>KCAA Certified Aircraft & Commercial Flight Crews</span>
           </div>
           <div class="flex items-center gap-3">
@@ -554,7 +549,7 @@
             <button
               type="button"
               (click)="openBookingModal()"
-              class="px-5 py-2 rounded-full bg-[#202A36] text-white text-xs font-medium hover:bg-[#1a2229] transition-colors cursor-pointer shadow-sm"
+              class="px-5 py-2 rounded-full bg-[#C0272D] text-white text-xs font-medium hover:bg-[#A01F24] transition-colors cursor-pointer shadow-sm"
             >
               Request Manifest
             </button>
@@ -571,7 +566,7 @@
         <div class="flex items-start justify-between mb-5 pb-3 border-b border-black/5">
           <div>
             <span class="text-xs uppercase tracking-wider font-medium text-gray-500">Nairobi Dispatch & Operations</span>
-            <h2 class="text-2xl font-semibold text-[#202A36] mt-0.5">Charter Flight Request</h2>
+            <h2 class="text-2xl font-semibold text-[#C0272D] mt-0.5">Charter Flight Request</h2>
           </div>
           <button
             type="button"
@@ -588,12 +583,12 @@
 
         @if (bookingSuccess()) {
           <div class="py-8 px-4 text-center">
-            <div class="w-14 h-14 rounded-full bg-emerald-100/80 text-emerald-700 mx-auto flex items-center justify-center mb-4 border border-emerald-200/60">
+            <div class="w-14 h-14 rounded-full bg-red-100/80 text-red-700 mx-auto flex items-center justify-center mb-4 border border-red-200/60">
               <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="20 6 9 17 4 12" />
               </svg>
             </div>
-            <h3 class="text-xl font-semibold text-[#202A36] mb-2">Charter Itinerary Received</h3>
+            <h3 class="text-xl font-semibold text-[#C0272D] mb-2">Charter Itinerary Received</h3>
             <p class="text-sm text-gray-600 max-w-md mx-auto mb-6 leading-relaxed">
               Our flight operations team at Wilson Airport (WIL) has received your charter request from <strong class="text-gray-900 font-medium">{{ bookingForm.value.departureAirport }}</strong> to <strong class="text-gray-900 font-medium">{{ bookingForm.value.arrivalAirport }}</strong>. A senior flight director will confirm your runway slot within 15 minutes.
             </p>
@@ -601,7 +596,7 @@
               <button
                 type="button"
                 (click)="closeBookingModal()"
-                class="px-6 py-2 rounded-full bg-[#202A36] text-white font-medium text-sm hover:bg-[#1a2229] transition-colors cursor-pointer"
+                class="px-6 py-2 rounded-full bg-[#C0272D] text-white font-medium text-sm hover:bg-[#A01F24] transition-colors cursor-pointer"
               >
                 Return to Overview
               </button>
@@ -656,7 +651,7 @@
                   id="departureAirport"
                   type="text"
                   formControlName="departureAirport"
-                  class="glass-input w-full px-3.5 py-2.5 text-sm rounded-xl focus:outline-none focus:ring-2 focus:ring-[#202A36] text-gray-900"
+                  class="glass-input w-full px-3.5 py-2.5 text-sm rounded-xl focus:outline-none focus:ring-2 focus:ring-[#C0272D] text-gray-900"
                   placeholder="e.g. Nairobi Wilson (WIL) or JKIA (NBO)"
                 />
               </div>
@@ -666,7 +661,7 @@
                   id="arrivalAirport"
                   type="text"
                   formControlName="arrivalAirport"
-                  class="glass-input w-full px-3.5 py-2.5 text-sm rounded-xl focus:outline-none focus:ring-2 focus:ring-[#202A36] text-gray-900"
+                  class="glass-input w-full px-3.5 py-2.5 text-sm rounded-xl focus:outline-none focus:ring-2 focus:ring-[#C0272D] text-gray-900"
                   placeholder="e.g. Mara Serena (MRE), Vipingo (VPG), Lewa (LWR)"
                 />
               </div>
@@ -680,7 +675,7 @@
                   id="flightDate"
                   type="date"
                   formControlName="flightDate"
-                  class="glass-input w-full px-3.5 py-2.5 text-sm rounded-xl focus:outline-none focus:ring-2 focus:ring-[#202A36] text-gray-900"
+                  class="glass-input w-full px-3.5 py-2.5 text-sm rounded-xl focus:outline-none focus:ring-2 focus:ring-[#C0272D] text-gray-900"
                 />
               </div>
               <div>
@@ -691,7 +686,7 @@
                   min="1"
                   max="16"
                   formControlName="passengers"
-                  class="glass-input w-full px-3.5 py-2.5 text-sm rounded-xl focus:outline-none focus:ring-2 focus:ring-[#202A36] text-gray-900"
+                  class="glass-input w-full px-3.5 py-2.5 text-sm rounded-xl focus:outline-none focus:ring-2 focus:ring-[#C0272D] text-gray-900"
                 />
               </div>
               <div>
@@ -699,11 +694,11 @@
                 <select
                   id="jetTier"
                   formControlName="jetTier"
-                  class="glass-input w-full px-3 py-2.5 text-sm rounded-xl focus:outline-none focus:ring-2 focus:ring-[#202A36] text-gray-900"
+                  class="glass-input w-full px-3 py-2.5 text-sm rounded-xl focus:outline-none focus:ring-2 focus:ring-[#C0272D] text-gray-900"
                 >
-                  <option value="Pilatus PC-24 Bush Jet">Pilatus PC-24 (Bush & Mara Certified)</option>
-                  <option value="Cessna Citation XLS+">Cessna Citation XLS+ (Regional Jet)</option>
-                  <option value="Bombardier Challenger 650">Challenger 650 (Heavy Long-Haul)</option>
+                  <option value="Pilatus PC-12 (Turboprop)">Pilatus PC-12 (Turboprop)</option>
+                  <option value="Citation Sovereign C680 (Jet)">Citation Sovereign C680 (Jet)</option>
+                  <option value="No preference">No preference</option>
                 </select>
               </div>
             </div>
@@ -716,7 +711,7 @@
                   id="contactName"
                   type="text"
                   formControlName="contactName"
-                  class="glass-input w-full px-3.5 py-2.5 text-sm rounded-xl focus:outline-none focus:ring-2 focus:ring-[#202A36] text-gray-900"
+                  class="glass-input w-full px-3.5 py-2.5 text-sm rounded-xl focus:outline-none focus:ring-2 focus:ring-[#C0272D] text-gray-900"
                   placeholder="e.g. David Kimani"
                 />
               </div>
@@ -726,7 +721,7 @@
                   id="contactEmail"
                   type="email"
                   formControlName="contactEmail"
-                  class="glass-input w-full px-3.5 py-2.5 text-sm rounded-xl focus:outline-none focus:ring-2 focus:ring-[#202A36] text-gray-900"
+                  class="glass-input w-full px-3.5 py-2.5 text-sm rounded-xl focus:outline-none focus:ring-2 focus:ring-[#C0272D] text-gray-900"
                   placeholder="name@company.co.ke"
                 />
               </div>
@@ -742,7 +737,7 @@
               </button>
               <button
                 type="submit"
-                class="px-6 py-2.5 rounded-full text-white bg-[#202A36] hover:bg-[#1a2229] transition-colors font-medium text-sm shadow-md cursor-pointer"
+                class="px-6 py-2.5 rounded-full text-white bg-[#C0272D] hover:bg-[#A01F24] transition-colors font-medium text-sm shadow-md cursor-pointer"
               >
                 Request Flight Manifest
               </button>
@@ -765,15 +760,15 @@
         <div class="flex items-start justify-between mb-4 pb-3 border-b border-black/5">
           <div>
             <div class="flex items-center gap-2">
-              <span class="text-xs uppercase tracking-wider font-semibold text-gray-500">SkyElite Kenya · VIP Operations</span>
+              <span class="text-xs uppercase tracking-wider font-semibold text-gray-500">SkyElite Kenya · Charter Operations</span>
               @if (navKey === 'Start' || navKey === 'Benefits') {
-                <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-emerald-100 text-emerald-800 border border-emerald-200">
-                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-red-100 text-red-800 border border-red-200">
+                  <span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>
                   Live Dispatch
                 </span>
               }
             </div>
-            <h2 class="text-2xl md:text-3xl font-semibold text-[#202A36] mt-0.5">{{ navDetails[navKey].title }}</h2>
+            <h2 class="text-2xl md:text-3xl font-semibold text-[#C0272D] mt-0.5">{{ navDetails[navKey].title }}</h2>
           </div>
           <button
             type="button"
@@ -816,7 +811,7 @@
             >
               <mat-icon class="text-base text-amber-600">wb_sunny</mat-icon>
               <span>Airstrip Weather</span>
-              <span class="hidden sm:inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span class="hidden sm:inline-block w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
             </button>
 
             <button
@@ -840,7 +835,7 @@
             <!-- Radar Header Bar -->
             <div class="glass-card rounded-2xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border border-white/80">
               <div>
-                <h3 class="text-sm font-semibold text-[#202A36] flex items-center gap-2">
+                <h3 class="text-sm font-semibold text-[#C0272D] flex items-center gap-2">
                   <mat-icon class="text-sky-700 text-lg">radar</mat-icon>
                   <span>Real-Time East African Radar & Charter Airspace Monitor</span>
                 </h3>
@@ -853,7 +848,7 @@
                 <button
                   type="button"
                   (click)="openFlightTracker()"
-                  class="px-3.5 py-2 rounded-xl bg-[#202A36] text-white hover:bg-[#1a2229] transition-colors text-xs font-medium cursor-pointer shrink-0 flex items-center gap-1.5 shadow-sm"
+                  class="px-3.5 py-2 rounded-xl bg-[#C0272D] text-white hover:bg-[#A01F24] transition-colors text-xs font-medium cursor-pointer shrink-0 flex items-center gap-1.5 shadow-sm"
                 >
                   <mat-icon class="text-sm">fullscreen</mat-icon>
                   <span>Full-Screen Radar</span>
@@ -874,12 +869,12 @@
             <!-- Weather Dispatch Header & Refresh Bar -->
             <div class="glass-card rounded-2xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border border-white/80">
               <div>
-                <h3 class="text-sm font-semibold text-[#202A36] flex items-center gap-2">
-                  <mat-icon class="text-emerald-700 text-lg">flight_takeoff</mat-icon>
+                <h3 class="text-sm font-semibold text-[#C0272D] flex items-center gap-2">
+                  <mat-icon class="text-red-700 text-lg">flight_takeoff</mat-icon>
                   <span>Real-Time Meteorological Conditions & Bush Runway Status</span>
                 </h3>
                 <p class="text-xs text-gray-600 mt-0.5 leading-relaxed">
-                  Real-time surface winds, temperature, VFR flight rules, and runway condition reports to assist safari and executive flight planning.
+                  Real-time surface winds, temperature, VFR flight rules, and runway condition reports to assist charter and remote-strip flight planning.
                 </p>
               </div>
 
@@ -889,7 +884,7 @@
                   type="button"
                   (click)="fetchLiveAirstripWeather()"
                   [disabled]="isWeatherLoading()"
-                  class="px-3 py-1.5 rounded-full text-xs font-medium bg-[#202A36] text-white hover:bg-[#1a2229] transition-all flex items-center gap-1.5 cursor-pointer disabled:opacity-60 shadow-sm"
+                  class="px-3 py-1.5 rounded-full text-xs font-medium bg-[#C0272D] text-white hover:bg-[#A01F24] transition-all flex items-center gap-1.5 cursor-pointer disabled:opacity-60 shadow-sm"
                 >
                   <mat-icon class="text-sm" [class.animate-spin]="isWeatherLoading()">refresh</mat-icon>
                   <span>{{ isWeatherLoading() ? 'Updating...' : 'Refresh METAR' }}</span>
@@ -903,7 +898,7 @@
               <button
                 type="button"
                 (click)="setWeatherFilter('all')"
-                [class.bg-[#202A36]]="selectedWeatherFilter() === 'all'"
+                [class.bg-[#C0272D]]="selectedWeatherFilter() === 'all'"
                 [class.text-white]="selectedWeatherFilter() === 'all'"
                 [class.bg-white/70]="selectedWeatherFilter() !== 'all'"
                 [class.text-gray-700]="selectedWeatherFilter() !== 'all'"
@@ -914,7 +909,7 @@
               <button
                 type="button"
                 (click)="setWeatherFilter('wilson')"
-                [class.bg-[#202A36]]="selectedWeatherFilter() === 'wilson'"
+                [class.bg-[#C0272D]]="selectedWeatherFilter() === 'wilson'"
                 [class.text-white]="selectedWeatherFilter() === 'wilson'"
                 [class.bg-white/70]="selectedWeatherFilter() !== 'wilson'"
                 [class.text-gray-700]="selectedWeatherFilter() !== 'wilson'"
@@ -925,7 +920,7 @@
               <button
                 type="button"
                 (click)="setWeatherFilter('safari')"
-                [class.bg-[#202A36]]="selectedWeatherFilter() === 'safari'"
+                [class.bg-[#C0272D]]="selectedWeatherFilter() === 'safari'"
                 [class.text-white]="selectedWeatherFilter() === 'safari'"
                 [class.bg-white/70]="selectedWeatherFilter() !== 'safari'"
                 [class.text-gray-700]="selectedWeatherFilter() !== 'safari'"
@@ -936,7 +931,7 @@
               <button
                 type="button"
                 (click)="setWeatherFilter('coastal')"
-                [class.bg-[#202A36]]="selectedWeatherFilter() === 'coastal'"
+                [class.bg-[#C0272D]]="selectedWeatherFilter() === 'coastal'"
                 [class.text-white]="selectedWeatherFilter() === 'coastal'"
                 [class.bg-white/70]="selectedWeatherFilter() !== 'coastal'"
                 [class.text-gray-700]="selectedWeatherFilter() !== 'coastal'"
@@ -954,10 +949,10 @@
                     <!-- Card Top: Name, ICAO & Category -->
                     <div class="flex items-start justify-between gap-2 mb-2">
                       <div>
-                        <h4 class="text-sm font-semibold text-[#202A36] leading-snug">{{ strip.name }}</h4>
+                        <h4 class="text-sm font-semibold text-[#C0272D] leading-snug">{{ strip.name }}</h4>
                         <span class="text-[11px] text-gray-500 block">{{ strip.type }}</span>
                       </div>
-                      <span class="px-2 py-0.5 rounded-lg text-xs font-mono font-semibold bg-black/5 text-[#202A36] shrink-0">
+                      <span class="px-2 py-0.5 rounded-lg text-xs font-mono font-semibold bg-black/5 text-[#C0272D] shrink-0">
                         {{ strip.code }} · {{ strip.icao }}
                       </span>
                     </div>
@@ -965,8 +960,8 @@
                     <!-- Category Badge & Freshness Indicator -->
                     <div class="flex items-center justify-between gap-2 mb-3">
                       @if (strip.flightCategory === 'VFR') {
-                        <span class="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-100 text-emerald-800 border border-emerald-200 flex items-center gap-1">
-                          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                        <span class="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-red-100 text-red-800 border border-red-200 flex items-center gap-1">
+                          <span class="w-1.5 h-1.5 rounded-full bg-red-500"></span>
                           VFR · Optimal Flight
                         </span>
                       } @else if (strip.flightCategory === 'MVFR') {
@@ -987,7 +982,7 @@
                     <div class="p-3 bg-white/60 rounded-xl mb-3 border border-white/80">
                       <div class="flex items-center justify-between mb-2">
                         <div class="flex items-baseline gap-1.5">
-                          <span class="text-2xl font-bold text-[#202A36]">{{ strip.tempC }}°C</span>
+                          <span class="text-2xl font-bold text-[#C0272D]">{{ strip.tempC }}°C</span>
                           <span class="text-xs text-gray-500 font-normal">({{ toFahrenheit(strip.tempC) }}°F)</span>
                         </div>
                         <div class="flex items-center gap-1.5 text-xs font-medium text-gray-700">
@@ -1035,7 +1030,7 @@
                     <button
                       type="button"
                       (click)="selectAirstripForCharter(strip)"
-                      class="w-full py-2 px-3 rounded-xl bg-[#202A36] text-white hover:bg-[#1a2229] transition-all text-xs font-medium flex items-center justify-center gap-1.5 cursor-pointer shadow-xs active:scale-95"
+                      class="w-full py-2 px-3 rounded-xl bg-[#C0272D] text-white hover:bg-[#A01F24] transition-all text-xs font-medium flex items-center justify-center gap-1.5 cursor-pointer shadow-xs active:scale-95"
                     >
                       <mat-icon class="text-xs">flight_takeoff</mat-icon>
                       <span>Plan Charter to {{ strip.code }}</span>
@@ -1063,7 +1058,7 @@
             <div class="space-y-3.5 mb-6">
               @for (item of navDetails[navKey].items; track item.label) {
                 <div class="glass-card rounded-xl p-4 border border-white/70 hover:bg-white/80 transition-colors">
-                  <h4 class="text-sm font-semibold text-[#202A36] mb-1">
+                  <h4 class="text-sm font-semibold text-[#C0272D] mb-1">
                     {{ item.label }}
                   </h4>
                   <p class="text-xs text-gray-600 leading-relaxed">{{ item.detail }}</p>
@@ -1091,18 +1086,18 @@
                   </button>
                 </div>
 
-                <div class="glass-card rounded-xl p-3.5 border border-white/80 bg-emerald-50/40 flex items-center justify-between">
+                <div class="glass-card rounded-xl p-3.5 border border-white/80 bg-red-50/40 flex items-center justify-between">
                   <div class="flex items-center gap-2.5">
-                    <mat-icon class="text-emerald-700 text-lg">cloud_queue</mat-icon>
+                    <mat-icon class="text-red-700 text-lg">cloud_queue</mat-icon>
                     <div>
                       <h5 class="text-xs font-semibold text-gray-900">Airstrip Weather</h5>
-                      <p class="text-[11px] text-gray-600">Live METAR for Wilson & safari strips.</p>
+                      <p class="text-[11px] text-gray-600">Live METAR for Wilson &amp; remote airstrips.</p>
                     </div>
                   </div>
                   <button
                     type="button"
                     (click)="setNavModalTab('weather')"
-                    class="px-3 py-1.5 rounded-lg bg-[#202A36] text-white hover:bg-[#1a2229] transition-colors text-xs font-medium cursor-pointer shrink-0"
+                    class="px-3 py-1.5 rounded-lg bg-[#C0272D] text-white hover:bg-[#A01F24] transition-colors text-xs font-medium cursor-pointer shrink-0"
                   >
                     Weather
                   </button>
@@ -1131,7 +1126,7 @@
             <button
               type="button"
               (click)="openBookingModal(); closeNavModal()"
-              class="px-5 py-2 rounded-full text-white bg-[#202A36] hover:bg-[#1a2229] transition-colors font-medium text-xs shadow-sm cursor-pointer"
+              class="px-5 py-2 rounded-full text-white bg-[#C0272D] hover:bg-[#A01F24] transition-colors font-medium text-xs shadow-sm cursor-pointer"
             >
               Book Charter Flight
             </button>

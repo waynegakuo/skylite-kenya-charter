@@ -62,13 +62,13 @@ export interface LandmarkFeature {
       <div class="px-5 py-4 bg-[#111b26]/90 border-b border-white/10 flex flex-wrap items-center justify-between gap-3 backdrop-blur-md">
         <div class="flex items-center gap-3">
           <div class="relative flex h-3.5 w-3.5 items-center justify-center">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-500"></span>
           </div>
           <div>
             <div class="flex items-center gap-2">
               <h2 class="text-base sm:text-lg font-semibold tracking-wide text-white">Live Flight Radar</h2>
-              <span class="px-2 py-0.5 rounded text-[10px] font-mono font-medium tracking-wider bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
+              <span class="px-2 py-0.5 rounded text-[10px] font-mono font-medium tracking-wider bg-red-500/15 text-red-400 border border-red-500/30">
                 KCAA ADS-B FEED
               </span>
             </div>
@@ -85,7 +85,7 @@ export interface LandmarkFeature {
             <button
               type="button"
               (click)="setFilter('all')"
-              [class.bg-emerald-600]="activeFilter() === 'all'"
+              [class.bg-red-600]="activeFilter() === 'all'"
               [class.text-white]="activeFilter() === 'all'"
               [class.text-slate-300]="activeFilter() !== 'all'"
               class="px-2.5 py-1 rounded-lg transition-all font-medium cursor-pointer"
@@ -95,7 +95,7 @@ export interface LandmarkFeature {
             <button
               type="button"
               (click)="setFilter('mara')"
-              [class.bg-emerald-600]="activeFilter() === 'mara'"
+              [class.bg-red-600]="activeFilter() === 'mara'"
               [class.text-white]="activeFilter() === 'mara'"
               [class.text-slate-300]="activeFilter() !== 'mara'"
               class="px-2.5 py-1 rounded-lg transition-all font-medium cursor-pointer flex items-center gap-1"
@@ -105,7 +105,7 @@ export interface LandmarkFeature {
             <button
               type="button"
               (click)="setFilter('mtkenya')"
-              [class.bg-emerald-600]="activeFilter() === 'mtkenya'"
+              [class.bg-red-600]="activeFilter() === 'mtkenya'"
               [class.text-white]="activeFilter() === 'mtkenya'"
               [class.text-slate-300]="activeFilter() !== 'mtkenya'"
               class="px-2.5 py-1 rounded-lg transition-all font-medium cursor-pointer flex items-center gap-1"
@@ -115,7 +115,7 @@ export interface LandmarkFeature {
             <button
               type="button"
               (click)="setFilter('coast')"
-              [class.bg-emerald-600]="activeFilter() === 'coast'"
+              [class.bg-red-600]="activeFilter() === 'coast'"
               [class.text-white]="activeFilter() === 'coast'"
               [class.text-slate-300]="activeFilter() !== 'coast'"
               class="px-2.5 py-1 rounded-lg transition-all font-medium cursor-pointer flex items-center gap-1"
@@ -212,10 +212,10 @@ export interface LandmarkFeature {
 
         <!-- Radar Sweep Overlay Indicator -->
         <div class="absolute top-4 left-4 pointer-events-none flex items-center gap-2 bg-[#121c27]/80 backdrop-blur-md px-3 py-1.5 rounded-xl border border-white/10 text-xs font-mono">
-          <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span class="inline-block w-2 h-2 rounded-full bg-red-400 animate-pulse"></span>
           <span class="text-slate-300">SWEEP 360° · WILSON PRIMARY RADAR</span>
           <span class="text-slate-500">|</span>
-          <span class="text-emerald-400 font-semibold">{{ activeAirborneCount() }} ACTIVE JETS</span>
+          <span class="text-red-400 font-semibold">{{ activeAirborneCount() }} ACTIVE JETS</span>
         </div>
 
         <!-- Map Layer Legend (Bottom Left) -->
@@ -231,7 +231,7 @@ export interface LandmarkFeature {
           </div>
           <span class="text-slate-600">·</span>
           <div class="flex items-center gap-1.5">
-            <span class="w-2.5 h-2.5 rounded-sm bg-emerald-500 border border-white/50"></span>
+            <span class="w-2.5 h-2.5 rounded-sm bg-red-500 border border-white/50"></span>
             <span>Maasai Mara Sanctuary</span>
           </div>
           <span class="text-slate-600">·</span>
@@ -274,8 +274,8 @@ export interface LandmarkFeature {
                     </div>
                     <span
                       class="text-[10px] font-mono px-1.5 py-0.5 rounded font-medium"
-                      [class.bg-emerald-500/20]="flight.status === 'Cruising' || flight.status === 'Scenic Orbit'"
-                      [class.text-emerald-300]="flight.status === 'Cruising' || flight.status === 'Scenic Orbit'"
+                      [class.bg-red-500/20]="flight.status === 'Cruising' || flight.status === 'Scenic Orbit'"
+                      [class.text-red-300]="flight.status === 'Cruising' || flight.status === 'Scenic Orbit'"
                       [class.bg-amber-500/20]="flight.status === 'Descending' || flight.status === 'On Approach'"
                       [class.text-amber-300]="flight.status === 'Descending' || flight.status === 'On Approach'"
                     >
@@ -339,13 +339,13 @@ export interface LandmarkFeature {
                 <!-- Progress Bar -->
                 <div class="w-full bg-slate-700/60 rounded-full h-1.5 overflow-hidden my-1">
                   <div
-                    class="bg-gradient-to-r from-sky-400 to-emerald-400 h-full rounded-full transition-all duration-300"
+                    class="bg-gradient-to-r from-sky-400 to-red-400 h-full rounded-full transition-all duration-300"
                     [style.width.%]="f.progress * 100"
                   ></div>
                 </div>
                 <div class="flex justify-between text-[10px] font-mono text-slate-400">
                   <span>Wheels Up</span>
-                  <span class="text-emerald-400 font-semibold">{{ Math.round(f.progress * 100) }}% Route Flown</span>
+                  <span class="text-red-400 font-semibold">{{ Math.round(f.progress * 100) }}% Route Flown</span>
                   <span>Arrival ETA ~{{ Math.round((1 - f.progress) * 45) + 5 }}m</span>
                 </div>
               </div>
@@ -354,7 +354,7 @@ export interface LandmarkFeature {
               <div class="grid grid-cols-3 gap-2 mb-3 text-center font-mono">
                 <div class="bg-[#14202d] rounded-xl p-2 border border-white/5">
                   <span class="text-[10px] text-slate-400 block">ALTITUDE</span>
-                  <span class="text-xs font-bold text-emerald-400">{{ f.altitudeFt.toLocaleString() }} FT</span>
+                  <span class="text-xs font-bold text-red-400">{{ f.altitudeFt.toLocaleString() }} FT</span>
                 </div>
                 <div class="bg-[#14202d] rounded-xl p-2 border border-white/5">
                   <span class="text-[10px] text-slate-400 block">GROUNDSPEED</span>
@@ -382,7 +382,7 @@ export interface LandmarkFeature {
                 </div>
                 <div class="flex justify-between">
                   <span class="text-slate-400">SSR Squawk:</span>
-                  <span class="font-mono text-emerald-300">{{ f.squawk }}</span>
+                  <span class="font-mono text-red-300">{{ f.squawk }}</span>
                 </div>
               </div>
 
@@ -390,7 +390,7 @@ export interface LandmarkFeature {
               <button
                 type="button"
                 (click)="bookThisRoute(f)"
-                class="w-full py-2 px-3 rounded-xl bg-gradient-to-r from-sky-600 to-emerald-600 hover:from-sky-500 hover:to-emerald-500 text-white font-medium text-xs transition-all flex items-center justify-center gap-1.5 shadow-md cursor-pointer"
+                class="w-full py-2 px-3 rounded-xl bg-gradient-to-r from-sky-600 to-red-600 hover:from-sky-500 hover:to-red-500 text-white font-medium text-xs transition-all flex items-center justify-center gap-1.5 shadow-md cursor-pointer"
               >
                 <mat-icon class="text-sm">airplane_ticket</mat-icon>
                 <span>Charter Route ({{ f.originCode }} ➔ {{ f.destCode }})</span>
@@ -423,7 +423,7 @@ export interface LandmarkFeature {
               @if (lm.runwayInfo) {
                 <div class="bg-[#14202d] rounded-xl p-2.5 border border-white/5 mb-3 text-xs">
                   <span class="text-[10px] text-slate-400 block font-mono">AIRSTRIP STATUS</span>
-                  <span class="text-emerald-300 font-medium">{{ lm.runwayInfo }}</span>
+                  <span class="text-red-300 font-medium">{{ lm.runwayInfo }}</span>
                 </div>
               }
 

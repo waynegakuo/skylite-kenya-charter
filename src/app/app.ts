@@ -29,7 +29,7 @@ export interface NavSubItem {
   description: string;
   icon: string;
   badge?: string;
-  badgeType?: 'amber' | 'emerald' | 'sky';
+  badgeType?: 'amber' | 'accent' | 'sky';
   action: 'rates' | 'dispatch' | 'faq' | 'interiors' | 'fleet' | 'benefits' | 'radar' | 'weather' | 'story' | 'safety';
 }
 
@@ -96,27 +96,27 @@ export class App {
   readonly navGroups: NavGroup[] = [
     {
       id: 'charter',
-      title: 'Charter Services',
+      title: 'Charter & Booking',
       shortTitle: 'Charter',
       items: [
         {
           id: 'rates',
-          label: 'Charter Rates & Pricing',
-          description: 'Transparent hourly rates & empty leg availability',
+          label: 'Charter Quotes & Pricing',
+          description: 'Tailored itineraries, transparent quotes within 24 hours',
           icon: 'payments',
           action: 'rates',
         },
         {
           id: 'dispatch',
-          label: 'Wilson Airport Dispatch',
-          description: 'VIP terminal operations & private boarding',
+          label: 'Wilson Airport Operations',
+          description: 'Charter dispatch, ground handling & cross-border clearance',
           icon: 'flight_takeoff',
           action: 'dispatch',
         },
         {
           id: 'faq',
-          label: 'Charter FAQs',
-          description: 'Luggage allowances, safari runways & customs',
+          label: 'Charter Planning FAQs',
+          description: 'Remote strips, medical cargo, passengers & customs',
           icon: 'help_outline',
           action: 'faq',
         },
@@ -124,13 +124,13 @@ export class App {
     },
     {
       id: 'fleet',
-      title: 'Fleet & Cabins',
-      shortTitle: 'Fleet & Cabins',
+      title: 'Fleet & Cabin Configurations',
+      shortTitle: 'Fleet',
       items: [
         {
           id: 'interiors',
-          label: 'Cabin Interiors & Amenities',
-          description: 'Luxury club seating, galleys & cabin photo carousel',
+          label: 'Cabin Layouts & Medical Fit-Outs',
+          description: 'Executive seating, stretcher configs & amenity gallery',
           icon: 'photo_library',
           badge: 'CAROUSEL',
           badgeType: 'amber',
@@ -138,15 +138,15 @@ export class App {
         },
         {
           id: 'fleet',
-          label: 'Aircraft Fleet Specifications',
-          description: 'Pilatus PC-24, Challenger 650 & Citation XLS+',
+          label: 'Charter Aircraft Specifications',
+          description: 'Pilatus PC-12 turboprop & Citation Sovereign C680 jet',
           icon: 'airplanemode_active',
           action: 'fleet',
         },
         {
           id: 'benefits',
-          label: 'Executive Flying Benefits',
-          description: 'Direct bush strip landings, dedicated crew & speed',
+          label: 'Why Charter With Us',
+          description: 'Remote airstrips, urgent departures & dedicated crew',
           icon: 'workspace_premium',
           action: 'benefits',
         },
@@ -154,26 +154,26 @@ export class App {
     },
     {
       id: 'live',
-      title: 'Live Flight Operations',
+      title: 'Live Operations',
       shortTitle: 'Live Ops',
       hasLiveBadge: true,
       items: [
         {
           id: 'radar',
-          label: 'Live Flight Radar',
-          description: 'Interactive real-time charter tracking over Kenya',
+          label: 'Live Charter Radar',
+          description: 'Simulated fleet movements across East African corridors',
           icon: 'radar',
           badge: 'D3 MAP',
-          badgeType: 'emerald',
+          badgeType: 'accent',
           action: 'radar',
         },
         {
           id: 'weather',
           label: 'Airstrip Weather (METAR)',
-          description: 'Real-time surface winds, visibility & runway reports',
+          description: 'Winds, visibility & runway conditions for flight planning',
           icon: 'wb_sunny',
           badge: 'LIVE METAR',
-          badgeType: 'emerald',
+          badgeType: 'accent',
           action: 'weather',
         },
       ],
@@ -185,15 +185,15 @@ export class App {
       items: [
         {
           id: 'story',
-          label: 'Our Story & Heritage',
-          description: '15+ years of East African private charter excellence',
+          label: 'Aviation Heritage & Impact',
+          description: 'Aero-medical legacy meets purposeful charter aviation',
           icon: 'auto_stories',
           action: 'story',
         },
         {
           id: 'safety',
-          label: 'Safety Standards & Flight Crew',
-          description: 'KCAA certified aircraft & factory-trained pilots',
+          label: 'Safety & Crew Standards',
+          description: 'KCAA-certified operations & experienced flight crews',
           icon: 'verified_user',
           action: 'safety',
         },
@@ -224,7 +224,7 @@ export class App {
       name: 'Nairobi Wilson Airport',
       code: 'WIL',
       icao: 'HKNW',
-      type: 'Executive Hub & VIP FBO',
+      type: 'Charter Hub & Aero-Medical Dispatch',
       lat: -1.3217,
       lng: 36.8148,
       elevation: '5,536 ft / 1,687 m',
@@ -356,7 +356,7 @@ export class App {
       nonNullable: true,
       validators: [Validators.required],
     }),
-    arrivalAirport: new FormControl('Maasai Mara (Mara Serena / Angama)', {
+    arrivalAirport: new FormControl('Kisumu (KIS) — Regional Hospital Corridor', {
       nonNullable: true,
       validators: [Validators.required],
     }),
@@ -368,7 +368,7 @@ export class App {
       nonNullable: true,
       validators: [Validators.required, Validators.min(1), Validators.max(16)],
     }),
-    jetTier: new FormControl('Pilatus PC-24 Bush Jet', { nonNullable: true }),
+    jetTier: new FormControl('Pilatus PC-12 (Turboprop)', { nonNullable: true }),
     contactName: new FormControl('', {
       nonNullable: true,
       validators: [Validators.required, Validators.minLength(2)],
@@ -381,10 +381,10 @@ export class App {
 
   // Popular Kenya charter routes for quick selection
   readonly kenyaRoutes = [
-    { from: 'Nairobi Wilson (WIL)', to: 'Maasai Mara (MRE)', label: 'Wilson → Maasai Mara', duration: '45 mins' },
-    { from: 'Nairobi Wilson (WIL)', to: 'Vipingo Ridge (VPG)', label: 'Wilson → Vipingo Coast', duration: '50 mins' },
-    { from: 'Nairobi Wilson (WIL)', to: 'Lewa Downs (LWR)', label: 'Wilson → Lewa Safari', duration: '40 mins' },
-    { from: 'Nairobi Wilson (WIL)', to: 'Zanzibar (ZNZ)', label: 'Wilson → Zanzibar', duration: '1h 10m' },
+    { from: 'Nairobi Wilson (WIL)', to: 'Kisumu (KIS)', label: 'Wilson → Kisumu Regional', duration: '50 mins' },
+    { from: 'Nairobi Wilson (WIL)', to: 'Mombasa (MBA)', label: 'Wilson → Mombasa Coast', duration: '55 mins' },
+    { from: 'Nairobi Wilson (WIL)', to: 'Lokichogio (LKG)', label: 'Wilson → Remote North', duration: '1h 45m' },
+    { from: 'Nairobi Wilson (WIL)', to: 'Entebbe (EBB)', label: 'Wilson → Entebbe Cross-Border', duration: '1h 05m' },
   ];
 
   selectKenyaRoute(route: { from: string; to: string }): void {
@@ -397,84 +397,139 @@ export class App {
   // Fleet data for Discover Modal
   readonly fleet: FleetJet[] = [
     {
-      name: 'Pilatus PC-24 Super Bush Jet',
-      category: 'Safari & Bush Runway Certified',
-      passengers: '8 - 11 Guests',
-      range: '2,000 nm',
-      speed: '440 kts (Mach 0.74)',
-      hourlyRate: '$4,800/hr · ~KES 620,000',
+      name: 'Pilatus PC-12',
+      category: 'Regional & Remote-Strip Turboprop',
+      passengers: 'Up to 9 passengers',
+      range: '1,800 nm',
+      speed: '290 kts cruise',
+      hourlyRate: 'Personalised quote within 24 hours',
       description:
-        'The only executive private jet engineered to land on unpaved gravel and grass runways in the Maasai Mara, Lewa, and Serengeti with pressurized stand-up luxury.',
+        'Versatile single-engine turboprop — ideal for regional charters and remote airstrip access across Africa, with premium interiors configured for your mission.',
     },
     {
-      name: 'Cessna Citation XLS+',
-      category: 'Mid-Size Executive Jet',
-      passengers: '9 Guests',
-      range: '2,100 nm',
-      speed: '441 kts (Mach 0.75)',
-      hourlyRate: '$5,600/hr · ~KES 720,000',
+      name: 'Cessna Citation Sovereign (C680)',
+      category: 'Mid-Size Business Jet',
+      passengers: 'Up to 9 passengers',
+      range: '3,200 nm',
+      speed: '458 kts cruise',
+      hourlyRate: 'Personalised quote within 24 hours',
       description:
-        'The premier corporate choice for fast trans-regional flights connecting Nairobi Wilson (WIL) to Mombasa, Vipingo, Entebbe, Kigali, and Addis Ababa.',
-    },
-    {
-      name: 'Bombardier Challenger 650',
-      category: 'Intercontinental Heavy Jet',
-      passengers: '12 - 14 Guests',
-      range: '4,000 nm',
-      speed: 'Mach 0.85',
-      hourlyRate: '$9,800/hr · ~KES 1,260,000',
-      description:
-        'Stationed between JKIA (NBO) and Wilson for nonstop corporate missions from Nairobi to London, Dubai, Geneva, and Johannesburg with full stateroom berthing.',
+        'Long-range mid-size jet combining executive comfort with international charter capability for cross-border and continental itineraries from Wilson Airport.',
     },
   ];
 
   // Nav Sections details contextualized for Kenya
   readonly navDetails: Record<string, NavSectionContent> = {
     Start: {
-      title: 'Private Flights from Nairobi',
-      subtitle: 'Bespoke executive charters departing from Wilson Airport (WIL) and JKIA (NBO) to over 140 Kenyan airstrips and regional capitals.',
+      title: 'Charter Flights from Wilson Airport',
+      subtitle:
+        'Purpose-driven air charters from Nairobi Wilson (WIL) — flexible scheduling, remote airstrip access, and full ground handling for corporate, NGO, and urgent travel across East Africa.',
       items: [
-        { label: '15-Minute Wilson Tarmac Dispatch', detail: 'Arrive at our private terminal lounge at Wilson Airport 15 minutes before wheels-up with discrete tarmac transfer.' },
-        { label: 'Direct Bush & Conservancy Access', detail: 'Authorized direct touchdowns at Mara Serena, Angama Mara, Keekorok, Lewa Downs, Loisaba, and Vipingo Ridge.' },
-        { label: 'Regional EAC Expedited Customs', detail: 'Fast-track diplomatic and business clearance across Kenya, Uganda, Rwanda, Tanzania, and Seychelles.' }
-      ]
+        {
+          label: '24/7 Charter Request Desk',
+          detail:
+            'Submit an itinerary online or by phone; receive a personalised quote, routing plan, and aircraft recommendation typically within one business day.',
+        },
+        {
+          label: 'Remote & Unpaved Airstrip Access',
+          detail:
+            'Turboprop fleet certified for short runways and bush strips where road access is limited — ideal for field programmes and last-mile connectivity.',
+        },
+        {
+          label: 'Cross-Border Coordination',
+          detail:
+            'Customs, overflight permits, and ground ambulance handoffs coordinated for Uganda, Tanzania, Rwanda, South Sudan, and wider Africa as required.',
+        },
+      ],
     },
     Story: {
-      title: 'Kenyan Aviation Excellence',
-      subtitle: 'Born in Nairobi to connect East Africa’s economic captains, international conservationists, and luxury safari travelers with zero compromise.',
+      title: 'Trusted Aviation, Purposeful Impact',
+      subtitle:
+        'SkyElite demonstrates how a leading East African aviation operator can pair decades of aero-medical expertise with premium charter services that fund health programmes across the continent.',
       items: [
-        { label: 'Rift Valley Aviators', detail: 'Captains with thousands of logged hours navigating the Great Rift Valley, Mount Kenya thermals, and bush runway approaches.' },
-        { label: 'KCAA & International Safety', detail: 'Fully certified under Kenya Civil Aviation Authority (KCAA) standards with rigorous Wyvern and ARGUS audit protocols.' },
-        { label: 'Conservation & Community Heritage', detail: 'Committed to conservation logistics supporting the Kenya Wildlife Service (KWS) and community conservancies.' }
-      ]
+        {
+          label: 'Wilson Airport Heritage',
+          detail:
+            'Operations anchored at Wilson Airport with crews experienced in time-critical missions, remote logistics, and passenger care under pressure.',
+        },
+        {
+          label: 'KCAA-Certified Operations',
+          detail:
+            'Aircraft maintained to Kenya Civil Aviation Authority standards with documented SMS practices and recurrent crew training.',
+        },
+        {
+          label: 'Charter With Meaning',
+          detail:
+            'Every charter booking modelled after impact aviation: a portion of commercial charter revenue supports maternal and community health outreach (demo narrative for client POC).',
+        },
+      ],
     },
     Rates: {
-      title: 'Transparent East African Charter Rates',
-      subtitle: 'Direct per-hour flight pricing in USD and Kenyan Shillings with zero hidden airport handling levies or blackout dates.',
+      title: 'Charter Pricing & Quote Model',
+      subtitle:
+        'Transparent, route-based quotes in USD and Kenyan Shillings — no hidden handling fees; pricing reflects aircraft type, crew duty, and strip complexity.',
       items: [
-        { label: 'Safari Bush Charters', detail: 'Starting from $3,800/leg (Nairobi Wilson to Maasai Mara, Amboseli, or Samburu; 40–50 min flight time).' },
-        { label: 'Coastal Corridors', detail: 'Starting from $4,200/leg (Nairobi Wilson to Vipingo Ridge, Diani Ukunda, or Malindi; 50–55 min flight time).' },
-        { label: 'Regional & Continental', detail: 'Starting from $5,600/hr (Nairobi to Entebbe, Kigali, Zanzibar, or nonstop to Dubai and Johannesburg).' }
-      ]
+        {
+          label: 'Regional Turboprop Charters',
+          detail:
+            'Indicative from $3,200/leg (Wilson to Kisumu, Nakuru, or Eldoret; ~45–55 min block time, PC-12 class).',
+        },
+        {
+          label: 'Coastal & Cross-Border',
+          detail:
+            'Indicative from $4,500/leg (Wilson to Mombasa or Entebbe; includes standard ground handling at Wilson).',
+        },
+        {
+          label: 'Jet & Urgent Dispatch',
+          detail:
+            'Citation-class jet and priority same-day departures priced hourly on request — medical escort and cargo configurations quoted separately.',
+        },
+      ],
     },
     Benefits: {
-      title: 'The SkyElite Kenya Advantage',
-      subtitle: 'Bypass Nairobi expressway congestion, skip commercial terminal lines, and touch down directly beside your luxury lodge or coastal villa.',
+      title: 'Charter Services Built on Trust',
+      subtitle:
+        'Fly on your schedule with medical-grade discipline: experienced dispatch, rigorous briefing, and cabins configured for executive teams or assisted passengers.',
       items: [
-        { label: 'Frictionless Wilson Departures', detail: 'Skip Nairobi traffic bottlenecks; our private FBO terminal offers discrete secure parking and instant boarding.' },
-        { label: 'High-Volume Safari Stowage', detail: 'Reinforced cargo bays accommodate photography equipment, golf sets, and safari luggage without restrictive limits.' },
-        { label: 'East African Culinary Curation', detail: 'Fresh gourmet in-flight dining sourced from Nairobi’s premier culinary ateliers with fine cellar pairings.' }
-      ]
+        {
+          label: 'Flexible Itineraries',
+          detail:
+            'Multi-leg days, stand-by aircraft, and last-minute route changes handled by dedicated charter coordinators.',
+        },
+        {
+          label: 'Medical & Executive Cabins',
+          detail:
+            'Layout options from club seating to stretcher-capable configurations with oxygen and secure medical kit stowage when required.',
+        },
+        {
+          label: 'Integrated Ground Support',
+          detail:
+            'Ambulance meet-and-greet, hotel transfers, and facility coordination available at Wilson and major regional destinations.',
+        },
+      ],
     },
     FAQ: {
-      title: 'Kenya Flight Planning Guide',
-      subtitle: 'Essential advice for corporate executives, safari travelers, and private charter guests in East Africa.',
+      title: 'Charter Booking Guide',
+      subtitle:
+        'Answers for programme managers, corporate travel desks, and families arranging private charters in Kenya and the wider region.',
       items: [
-        { label: 'Can private jets land inside the Maasai Mara?', detail: 'Yes. Our Pilatus PC-24 and regional fleet are fully certified for key paved and prepared conservancy airstrips.' },
-        { label: 'What are the baggage allowances on bush flights?', detail: 'Unlike scheduled bush carriers with rigid 15kg limits, private charters accommodate full custom baggage manifests.' },
-        { label: 'How does international customs clearance operate?', detail: 'International cross-border flights clear immigration directly at our private Wilson or JKIA VIP suite without public terminal queues.' }
-      ]
-    }
+        {
+          label: 'How do I book a charter flight?',
+          detail:
+            'Use the Book Flight form with departure, destination, date, and passenger count. Our team confirms aircraft availability, pricing, and ground logistics.',
+        },
+        {
+          label: 'Can you land on remote airstrips?',
+          detail:
+            'Yes — turboprop aircraft in our demo fleet are spec’d for short and unpaved strips subject to runway survey and daylight operating rules.',
+        },
+        {
+          label: 'Is this the same as an air ambulance?',
+          detail:
+            'Charter flights are scheduled private transport. Time-critical medical evacuations require a separate medevac activation — this POC focuses on charter sales workflow.',
+        },
+      ],
+    },
   };
 
   toggleMobileMenu(): void {
@@ -579,12 +634,10 @@ export class App {
   }
 
   onSelectJetFromCarousel(aircraft: string): void {
-    if (aircraft.includes('PC-24') || aircraft.includes('Bush')) {
-      this.bookingForm.patchValue({ jetTier: 'Pilatus PC-24 Bush Jet' });
-    } else if (aircraft.includes('Challenger')) {
-      this.bookingForm.patchValue({ jetTier: 'Bombardier Challenger 650' });
+    if (aircraft.includes('PC-12')) {
+      this.bookingForm.patchValue({ jetTier: 'Pilatus PC-12 (Turboprop)' });
     } else {
-      this.bookingForm.patchValue({ jetTier: 'Cessna Citation XLS+' });
+      this.bookingForm.patchValue({ jetTier: 'Citation Sovereign C680 (Jet)' });
     }
     this.closeDiscoverModal();
     this.openBookingModal();
